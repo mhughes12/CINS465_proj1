@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="description" content="Chess board"/>
+    <meta name="keywords" content="chess, game, board, pieces, instructions, rules"/>
+    <meta name="creator" content="Martin Hughes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <title>Chess Board</title>
+
+
+
+    <script>
+
+      function move(){
+      var originLoc = document.getElementById('origin').value;
+      var destinationLoc = document.getElementById('destination').value;
+
+      var originPiece = document.getElementById(originLoc).innerHTML;
+
+      if(originPiece.includes("&nbsp;")){
+        return;
+
+      }
+
+    else if(originPiece.includes("<sub>" && "<sup>")){
+        document.getElementById(destinationLoc).innerHTML = "&#9814";
+
+        document.getElementById(originLoc).innerHTML = "<sup>1</sup> &nbsp<sub>A</sub>";
+
+      }
+
+      else if(originPiece.includes("<sup>")){
+
+        var n = originPiece.lastIndexOf(">");
+        var cut = originPiece.slice(0, n+1);
+        var piece = originPiece.slice(n+1,originPiece.length);
+        document.getElementById(destinationLoc).innerHTML = piece;
+
+        document.getElementById(originLoc).innerHTML = cut;
+
+      }
+
+      else if(originPiece.includes("<sub>")){
+
+        var n = originPiece.indexOf("<");
+        var cut = originPiece.slice(n, originPiece.length);
+        var piece = originPiece.slice(0,n);
+        document.getElementById(destinationLoc).innerHTML = piece;
+
+        document.getElementById(originLoc).innerHTML = "&nbsp"+cut ;
+
+      }
+
+
+
+
+      else if(!originPiece.includes("&nbsp;")){
+        document.getElementById(destinationLoc).innerHTML = originPiece;
+
+        document.getElementById(originLoc).innerHTML = "";
+
+      }
+
+
+
+
+
+
+
+
+
+      }
+
+
+    </script>
+
+
+
+  </head>
+
+
+  <body>
+
+
+
+
+
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="chess.html" style= "font-size:20px">&#8962;</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="history.html">History of Chess and Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pieces.html">Chess Pieces and Gameplay</a>
+      </li>
+
+    </ul>
+  </nav>
+
+<h1 style="text-align:center">CINS 465: Assignment 1 by Martin Hughes</h1>
+
+    <div class=" container-fluid ">
+
+
+
+
+
+    <table align="center">
+
+      <tr>
+       <td id = "A8"><sup>8</sup>&#9820;</td>
+       <td id = "B8">&#9822;</td>
+       <td id = "C8">&#9821;</td>
+       <td id = "D8">&#9818;</td>
+       <td id = "E8">&#9819;</td>
+       <td id = "F8">&#9821;</td>
+       <td id = "G8">&#9822;</td>
+       <td id = "H8">&#9820;</td>
+
+      </tr>
+
+      <tr>
+        <td id = "A7"><sup>7</sup>&#9823;</td>
+        <td id = "B7">&#9823;</td>
+        <td id = "C7">&#9823;</td>
+        <td id = "D7">&#9823;</td>
+        <td id = "E7">&#9823;</td>
+        <td id = "F7">&#9823;</td>
+        <td id = "G7">&#9823;</td>
+        <td id = "H7">&#9823;</td>
+      </tr>
+
+      <tr>
+       <td id = "A6"><sup>6</sup>&nbsp;</td>
+       <td id = "B6">&nbsp;</td>
+       <td id = "C6">&nbsp;</td>
+       <td id = "D6">&nbsp;</td>
+       <td id = "E6">&nbsp;</td>
+       <td id = "F6">&nbsp;</td>
+       <td id = "G6">&nbsp;</td>
+       <td id = "H6">&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td id = "A5"><sup>5</sup>&nbsp;</td>
+        <td id = "B5">&nbsp;</td>
+        <td id = "C5">&nbsp;</td>
+        <td id = "D5">&nbsp;</td>
+        <td id = "E5">&nbsp;</td>
+        <td id = "F5">&nbsp;</td>
+        <td id = "G5">&nbsp;</td>
+        <td id = "H5">&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td id = "A4"><sup>4</sup>&nbsp;</td>
+        <td id = "B4">&nbsp;</td>
+        <td id = "C4">&nbsp;</td>
+        <td id = "D4">&nbsp;</td>
+        <td id = "E4">&nbsp;</td>
+        <td id = "F4">&nbsp;</td>
+        <td id = "G4">&nbsp;</td>
+        <td id = "H4">&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td id = "A3"><sup>3</sup>&nbsp;</td>
+        <td id = "B3">&nbsp;</td>
+        <td id = "C3">&nbsp;</td>
+        <td id = "D3">&nbsp;</td>
+        <td id = "E3">&nbsp;</td>
+        <td id = "F3">&nbsp;</td>
+        <td id = "G3">&nbsp;</td>
+        <td id = "H3">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td id = "A2"><sup>2</sup>&#9817;</td>
+       <td id = "B2">&#9817;</td>
+       <td id = "C2">&#9817;</td>
+       <td id = "D2">&#9817;</td>
+       <td id = "E2">&#9817;</td>
+       <td id = "F2">&#9817;</td>
+       <td id = "G2">&#9817;</td>
+       <td id = "H2">&#9817;</td>
+      </tr>
+
+      <tr>
+       <td id = "A1"><sup>1</sup> &#9814;<sub>A</sub></td>
+       <td id = "B1">&#9816;<sub>B</sub></td>
+       <td id = "C1">&#9815;<sub>C</sub></td>
+       <td id = "D1">&#9813;<sub>D</sub></td>
+       <td id = "E1">&#9812;<sub>E</sub></td>
+       <td id = "F1">&#9815;<sub>F</sub></td>
+       <td id = "G1">&#9816;<sub>G</sub></td>
+       <td id = "H8">&#9814;<sub>H</sub></td>
+      </tr>
+    </table>
+
+
+
+    <h4 align="center" class="table-responsive, ">Enter the origin and destination of the piece you wish to move</h4>
+<h5 align="center"> Example: A5 or B8 </h5>
+<form align="center" class="table-responsive">
+  Origin Location: <input type="text" name="origin" id= "origin"><br>
+  Destination Location: <input type="text" name="destination" id = "destination"><br><br>
+
+  <button type= "button" onclick="move()">Move</button>
+
+
+
+       &nbsp &nbsp
+  <INPUT TYPE="button" onClick="history.go(0)" VALUE="Reset Board">
+    <br>
+
+
+</form>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+    <h3> Steps to Create this Website</h3>
+    <ol type="1">
+      <li><font size = "5">HTML </font> <br>
+        <ol type="a">
+          <li>First I had to set up a .html text document with the barebones layout I wanted,
+          including a Title, Header, Table, and 3 Sub-Headers with paragraphs beneath them. </li>
+          <li>I knew that The first thing I needed to do was figure out how to create the table.
+          So I researched and found the syntax needed to create table and table elements, and created each table element with the correct chess piece in Unicode. </li>
+          <li>In order to make the squares alternating colors, I created cell ID's to style in the CSS document.</li>
+        </ol>
+      </li>  <br>
+
+      <li><font size = "5">CSS </font> <br>
+        <ol type="a">
+        <li>Next I created a .css document in order to style and format the table I was creating for the chess board.
+        The CSS document allowed me to edit the size of the pieces, spacing of cells, and the border on the table.</li>
+        <li>Here I also edited the backgound color of the page, and I experimented with using a backgroud image. The image made the text hareder to read so I opted for a solid color background.</li>
+      <li>  Lastly I styled the alternating cells by using the ID's created in the HTML document.</li>
+      </ol>
+      </li><br>
+
+      <li><font size = "5">Creating Content </font> <br>
+        And finally, I added all the necessary content to each section, detailing how to the game of chess works and how I made this website.
+      </li>
+    </ol>
+
+
+
+
+
+ </div>
+
+ <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

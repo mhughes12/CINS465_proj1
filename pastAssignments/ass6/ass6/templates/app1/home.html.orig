@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HTML Sudoku Board</title>
+  <!--bootstrap includes-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script>
+
+  function initBoard() {
+    document.getElementById("r1c3").firstChild.focus();
+  }
+
+  function newGame() {
+    let table = document.getElementById("t1");
+    let inputs = table.getElementsByTagName("input");
+    for (let i=0; i < inputs.length; i++) {
+      if (!inputs[i].disabled) {
+        inputs[i].value = "";
+      }
+    }
+    initBoard();
+  }
+
+  function checkCellValid(cell) {
+    let value = parseInt(cell.value);
+    let isValid = (Number.isInteger(value) && value >= 1 && value <=9);
+    if (isValid) {
+      cell.style.color = "green";
+      cell.blur();
+    }
+    else
+    cell.value = "";
+  }
+  </script>
+  <style type="text/css">
+
+  /* type selector (all input tags) */
+  input {
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+
+  /* class selector, child selector "combinator"
+  (all td tags within any tag having class "border_top")
+  */
+  .border_top td {
+    border-top: 4px solid #000000;
+  }
+
+  /* type selector, descendant "combinator" selector, and nth-child "pseudo-class" selector.
+  "the 1st, 4th & 7th columns within table rows". */
+  table tr td:nth-child(1),
+  table tr td:nth-child(4),
+  table tr td:nth-child(7) {
+    border-left: 4px solid #000000;
+  }
+
+  /* class selector, child selector "combinator"
+  (all td tags within any tag having class "border_bottom")
+  */
+  .border_bottom>td {
+    border-bottom: 4px solid #000000;
+  }
+
+  /* type selector, descendant "combinator" selector, and nth-child "pseudo-class" selector.
+  "the 9th column within table rows". */
+  table tr td:nth-child(9) {
+    border-right: 4px solid #000000;
+  }
+
+  /* type selector, attribute selector, pseudo-class selector
+  "when mouse hovers over any input tag of type text that is enabled." */
+  input[type="text"]:enabled:hover {
+    background-color: yellow;
+  }
+
+  </style>
+</head>
+<body onload="initBoard()">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Sudoku</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.learn-sudoku.com/">Learn Suduko</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 style="text-align:center">HTML Sudoku Board</h1>
+    <table id="t1" border=1 align="center" class="table-responsive, ">
+      <tr class="border_top">
+        <td id="r1c1"><input type="text" value="6" disabled /></td>
+        <td id="r1c2"><input type="text" value="7" disabled /></td>
+        <td id="r1c3"><input type="text" onchange="checkCellValid(this)"/></td>
+
+        <td id="r1c4"><input type="text" /></td>
+        <td id="r1c5"><input type="text" value="4" disabled /></td>
+        <td id="r1c6"><input type="text" value="8" disabled /></td>
+
+        <td id="r1c7"><input type="text" /></td>
+        <td id="r1c8"><input type="text" value="1" disabled /></td>
+        <td id="r1c9"><input type="text" onchange="checkCellValid(this)" /></td>
+      </tr>
+
+      <tr>
+        <td id="r2c1" class="g1"><input type="text" value="3" disabled /></td>
+        <td id="r2c2" class="g1"><input type="text" value="5" disabled /></td>
+        <td id="r2c3" class="g1"><input type="text" onchange="checkCellValid(this)" /></td>
+
+        <td id="r2c4"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r2c5"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r2c6"><input type="text" value="1" disabled /></td>
+
+        <td id="r2c7"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r2c8"><input type="text" value="4" disabled /></td>
+        <td id="r2c9"><input type="text" value="7" disabled /></td>
+      </tr>
+
+      <tr>
+        <td id="r3c1"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r3c2"><input type="text" value="1" disabled /></td>
+        <td id="r3c3"><input type="text" onchange="checkCellValid(this)" /></td>
+
+        <td id="r3c4"><input type="text" value="7" disabled /></td>
+        <td id="r3c5"><input type="text" value="2" disabled /></td>
+        <td id="r3c6"><input type="text" onchange="checkCellValid(this)" /></td>
+
+        <td id="r3c7"><input type="text" value="6" disabled /></td>
+        <td id="r3c8"><input type="text" value="8" disabled /></td>
+        <td id="r3c9"><input type="text" onchange="checkCellValid(this)" /></td>
+      </tr>
+
+      <tr class="border_top">
+        <td id="r4c1"><input type="text" value="8" disabled /></td>
+        <td id="r4c2"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r4c3"><input type="text" value="3" disabled /></td>
+
+        <td id="r4c4"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r4c5"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r4c6"><input type="text" onchange="checkCellValid(this)" /></td>
+
+        <td id="r4c7"><input type="text" value="1" disabled /></td>
+        <td id="r4c8"><input type="text" value="6" disabled /></td>
+        <td id="r4c9"><input type="text" value="9" disabled /></td>
+      </tr>
+
+      <tr>
+        <td id="r5c1"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r5c2"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r5c3"><input type="text" value="7" disabled /></td>
+
+        <td id="r5c4"><input type="text" value="9" disabled /></td>
+        <td id="r5c5"><input type="text" value="1" disabled /></td>
+        <td id="r5c6"><input type="text" onchange="checkCellValid(this)" /></td>
+
+        <td id="r5c7"><input type="text" value="8" disabled /></td>
+        <td id="r5c8"><input type="text" value="3" disabled /></td>
+        <td id="r5c9"><input type="text" onchange="checkCellValid(this)" /></td>
+      </tr>
+
+      <tr>
+        <td id="r6c1"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r6c2"><input type="text" value="9" disabled /></td>
+        <td id="r6c3"><input type="text" value="6" disabled /></td>
+
+        <td id="r6c4"><input type="text" value="4" disabled /></td>
+        <td id="r6c5"><input type="text" value="8" disabled /></td>
+        <td id="r6c6"><input type="text" value="3" disabled /></td>
+
+        <td id="r6c7"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r6c8"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r6c9"><input type="text" onchange="checkCellValid(this)" /></td>
+      </tr>
+
+      <tr class="border_top">
+        <td id="r7c1"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r7c2"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r7c3"><input type="text" value="9" disabled /></td>
+
+        <td id="r7c4"><input type="text" value="1" disabled /></td>
+        <td id="r7c5"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r7c6"><input type="text" value="4" disabled /></td>
+
+        <td id="r7c7"><input type="text" value="3" disabled /></td>
+        <td id="r7c8"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r7c9"><input type="text" value="8" disabled /></td>
+      </tr>
+
+      <tr>
+        <td id="r8c1"><input type="text" value="4" disabled /></td>
+        <td id="r8c2"><input type="text" value="8" disabled /></td>
+        <td id="r8c3"><input type="text" value="1" disabled /></td>
+
+        <td id="r8c4"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r8c5"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r8c6"><input type="text" onchange="checkCellValid(this)" /></td>
+
+        <td id="r8c7"><input type="text" value="7" disabled /></td>
+        <td id="r8c8"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r8c9"><input type="text" value="6" disabled /></td>
+      </tr>
+
+      <tr class="border_bottom">
+        <td id="r9c1"><input type="text" value="7" disabled /></td>
+        <td id="r9c2"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r9c3"><input type="text" onchange="checkCellValid(this)" /></td>
+
+        <td id="r9c4"><input type="text" value="8" disabled /></td>
+        <td id="r9c5"><input type="text" value="6" disabled /></td>
+        <td id="r9c6"><input type="text" value="2" disabled /></td>
+
+        <td id="r9c7"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r9c8"><input type="text" onchange="checkCellValid(this)" /></td>
+        <td id="r9c9"><input type="text" value="1" disabled /></td>
+      </tr>
+
+    </table>
+    <form>
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="newGame();">Clear Board</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+
+</html>

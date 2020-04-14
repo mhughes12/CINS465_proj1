@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <meta charset="utf-8">
+    <meta name="description" content="Chess board"/>
+    <meta name="keywords" content="chess, game, board, pieces, instructions, rules"/>
+    <meta name="creator" content="Martin Hughes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <title>Chess Board</title>
+
+    {% load static %}
+     <script src="{%static 'JS/project1.js' %}"></script>
+  <link rel="stylesheet" href="{%static 'CSS/project1.css' %}">
+
+  </head>
+
+
+  <body>
+
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/" style= "font-size:20px">&#8962;</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/history/">History of Chess and Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/rules/">Chess Pieces and Gameplay</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/">About this Website</a>
+      </li>
+
+    </ul>
+  </nav>
+
+<h1 style="text-align:center">CINS 465: Assignment 1 by Martin Hughes</h1>
+
+
+
+<div class="container-fluid">
+    <h3> Steps to Create this Website</h3>
+    <ol type="1">
+      <li><font size = "5">HTML </font> <br>
+        <ol type="a">
+          <li>First I had to set up a .html text document with the barebones layout I wanted,
+          including a Title, Header, Table, and 3 Sub-Headers with paragraphs beneath them. </li>
+          <li>I knew that The first thing I needed to do was figure out how to create the table.
+          So I researched and found the syntax needed to create table and table elements, and created each table element with the correct chess piece in Unicode. </li>
+          <li>In order to make the squares alternating colors, I created cell ID's to style in the CSS document.</li>
+        </ol>
+      </li>  <br>
+
+      <li><font size = "5">CSS </font> <br>
+        <ol type="a">
+        <li>Next I created a .css document in order to style and format the table I was creating for the chess board.
+        The CSS document allowed me to edit the size of the pieces, spacing of cells, and the border on the table.</li>
+        <li>Here I also edited the backgound color of the page, and I experimented with using a backgroud image. The image made the text hareder to read so I opted for a solid color background.</li>
+      <li>  Lastly I styled the alternating cells by using the ID's created in the HTML document.</li>
+      </ol>
+      </li><br>
+
+      <li><font size = "5">Creating Content </font> <br>
+         Finally, I added all the necessary content to each section, detailing how to the game of chess works and how I made this website.
+      </li> <br>
+
+      <li><font size = "5">Bootstrap Navigation </font> <br>
+      The next iteration of the website came with a easy to use navigation bar at the top of the page. This is built with bootstrap and jquery.
+      </li><br>
+
+      <li><font size = "5">Django Migration </font> <br>
+        <ol type="a">
+        <li>The most recent iteration of this website was created using a python django backend.</li>
+        <li>I created a dictionary of pairings between IDs and values </li>
+      <li>Then in the html file I used DTL and for loops to create the table using the dictionary</li>
+      </ol>
+      </li><br>
+
+    </ol>
+
+
+
+
+
+ </div>
+
+
+  </body>
+</html>

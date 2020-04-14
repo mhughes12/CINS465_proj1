@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="Chess board"/>
+    <meta name="keywords" content="chess, game, board, pieces, instructions, rules"/>
+    <meta name="creator" content="Martin Hughes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% load static %}
+     <script src="{%static 'JS/project1.js' %}"></script>
+     <link rel="stylesheet" href="{%static 'CSS/project1.css' %}">
+
+    <title>Chess Board</title>
+
+  </head>
+
+<script>
+
+      function move(){
+      var originLoc = document.getElementById('origin').value;
+      var destinationLoc = document.getElementById('destination').value;
+
+      var originPiece = document.getElementById(originLoc).innerHTML;
+
+      if(originPiece.includes("&nbsp;")){
+        return;
+
+      }
+
+    else if(originPiece.includes("<sub>" && "<sup>")){
+        document.getElementById(destinationLoc).innerHTML = "&#9814";
+
+        document.getElementById(originLoc).innerHTML = "<sup>1</sup> &nbsp<sub>A</sub>";
+
+      }
+
+      else if(originPiece.includes("<sup>")){
+
+        var n = originPiece.lastIndexOf(">");
+        var cut = originPiece.slice(0, n+1);
+        var piece = originPiece.slice(n+1,originPiece.length);
+        document.getElementById(destinationLoc).innerHTML = piece;
+
+        document.getElementById(originLoc).innerHTML = cut;
+
+      }
+
+      else if(originPiece.includes("<sub>")){
+
+        var n = originPiece.indexOf("<");
+        var cut = originPiece.slice(n, originPiece.length);
+        var piece = originPiece.slice(0,n);
+        document.getElementById(destinationLoc).innerHTML = piece;
+
+        document.getElementById(originLoc).innerHTML = "&nbsp"+cut ;
+
+      }
+
+
+
+
+      else if(!originPiece.includes("&nbsp;")){
+        document.getElementById(destinationLoc).innerHTML = originPiece;
+
+        document.getElementById(originLoc).innerHTML = "";
+
+      }
+
+
+
+
+
+
+
+
+
+      }
+
+
+
+</script>
+
+  <body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/" style= "font-size:20px">&#8962;</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/history/">History of Chess and Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/rules/">Chess Pieces and Gameplay</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/">About this Website</a>
+      </li>
+
+    </ul>
+  </nav>
+
+
+
+
+
+
+<h1 style="text-align:center">CINS 465: Assignment 1 by Martin Hughes</h1>
+
+    <div class=" container-fluid ">
+
+    <table id="t1" border=1 align="center" class="table-responsive, ">
+
+    {% for row in rows %}
+    {% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 %}
+     <tr class="border_top">
+       {% elif forloop.last %}
+       <tr class="border_bottom">
+         {% else %}
+         <tr>
+           {% endif %}
+           {% for name,value in row.items %}
+           <td id="{{name}}"> {% autoescape off %}{{value}} {% endautoescape %} </td>
+           {% endfor %}
+         </tr>
+         {% endfor %}
+    </table>
+
+
+
+    <h4 align="center" class="table-responsive, ">Enter the origin and destination of the piece you wish to move</h4>
+<h5 align="center"> Example: A5 or B8 </h5>
+<form align="center" class="table-responsive">
+  Origin Location: <input type="text" name="origin" id= "origin"><br>
+  Destination Location: <input type="text" name="destination" id = "destination"><br><br>
+
+  <button type= "button" onclick="move()">Move</button>
+
+
+
+       &nbsp &nbsp
+  <INPUT TYPE="button" onClick="history.go(0)" VALUE="Reset Board">
+    <br>
+
+
+</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

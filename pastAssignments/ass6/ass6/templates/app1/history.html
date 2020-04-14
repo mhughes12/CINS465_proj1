@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <meta name="description" content="Chess board"/>
+    <meta name="keywords" content="chess, game, board, pieces, instructions, rules"/>
+    <meta name="creator" content="Martin Hughes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+
+    <title>The History of Chess</title>
+    {% load static %}
+     <script src="{%static 'JS/project1.js' %}"></script>
+     <link rel="stylesheet" href="{%static 'CSS/project1.css' %}">
+
+  </head>
+
+
+  <body>
+    {% include "app1/navbar.html" %}
+   
+    <div class=" container-fluid">
+      <h1 style="text-align:center">CINS 465: Assignment 6 by Martin Hughes</h1>
+    <h2>Chess Overview and History</h2>
+
+     <p> Chess is a classic strategy game that originated in  the 7th century. It is played on an 8x8 grid by two players who are attemping to use their pieces to capture the opposing player's King piece.
+      Each player has 16 pieces, 8 pawns, and 8 special pieces, with each type of piece having a specific manner in which it can move and capture enemy pieces.
+      Only one piece can be moved per turn, and players switch off taking turns, and the player with white pieces goes first.
+      Games can be timed or untimed, and the many chess tournaments usually play timed games.
+      The end of a game is known as <i>Checkmate</i>, when one player's King is impossibly trapped by the opposing player's pieces. <i> Check </i> is a point in the game where one player is in capturing position of the opposing King, which forces the player to move their King to avoid <i> Checkmate </i>
+    </p>
+
+    <p>
+      Chess Dates back to the 6th century India, but the game has changed since its origins. The game as we know it today is based off changes made to the movement of Pieces
+      in 15th century Europe. The first chess competitions began in the 1800s, with the first World Champtionship being held in 1886. The two players were named Wilhelm Steinitz and Johannes Zukertort, and Steinitz claimed victory 10 games to 5.
+      The matches were played in different cities, beginning in New York City, then on to St. Louis, and finally finishing play in New Orleans.
+    </p>
+  </div>
+
+  </body>
+</html>

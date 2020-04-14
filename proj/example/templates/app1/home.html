@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HTML Sudoku Board</title>
+  {% include "app1/shared_links.html" %}
+</head>
+<body onload="initBoard()">
+  {% include "app1/navbar.html" %}
+  <div class="container">
+    <h1 style="text-align:center">HTML Sudoku Board</h1>
+    <table id="t1" border=1 align="center" class="table-responsive, ">
+      {% for row in rows %}
+        {% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 %}
+          <tr class="border_top">
+        {% elif forloop.last %}
+          <tr class="border_bottom">
+        {% else %}
+          <tr>
+        {% endif %}
+        {% for name,value in row.items %}
+          {% if value == 0 %}
+              <td id="{{name}}"><form action="/" method="get"><input name="cellname" value="{{name}}" hidden><input name="cellvalue" type="text" value="" onchange="if (checkCellValid(this)){this.form.submit();}" /></form></td>
+          {% else %}
+              <td id="{{name}}"><input type="text" value="{{value}}" disabled /></td>
+          {% endif %}
+        {% endfor %}
+          </tr>
+      {% endfor %}
+      </table>
+      <div class="container" align="center">
+        <form method="post">{% csrf_token %}
+          {{sudoku_form.as_table}}
+          <button type="submit" class="btn btn-primary" name="move">Move</button>
+        </form>
+      </div>
+      <p>
+        <form method="get"><button type="submit" class="btn btn-primary" name="new_game">New Game</button></form>
+      </p>
+    </div>
+  </body>
+  </html>

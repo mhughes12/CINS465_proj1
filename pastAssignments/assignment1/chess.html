@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Chess board"/>
+    <meta name="keywords" content="chess, game, board, pieces, instructions, rules"/>
+    <meta name="creator" content="Martin Hughes"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chess Board</title>
+    <link rel="stylesheet" href="table.css">
+
+
+
+    <script>src = "script.js"</script>
+
+  </head>
+
+
+  <body>
+
+    <h1>CINS 465: Assignment 1 by Martin Hughes</h1>
+
+
+    <table>
+      <tr>
+
+       <td id = "A1">&#9820;</td>
+       <td id = "A2">&#9822;</td>
+       <td id = "A3">&#9821;</td>
+       <td id = "A4">&#9818;</td>
+       <td id = "A5">&#9819;</td>
+       <td id = "A6">&#9821;</td>
+       <td id = "A7">&#9822;</td>
+       <td id = "A8">&#9820;</td>
+
+      </tr>
+
+      <tr>
+        <td id = "B1">&#9823;</td>
+        <td id = "B2">&#9823;</td>
+        <td id = "B3">&#9823;</td>
+        <td id = "B4">&#9823;</td>
+        <td id = "B5">&#9823;</td>
+        <td id = "B6">&#9823;</td>
+        <td id = "B7">&#9823;</td>
+        <td id = "B8">&#9823;</td>
+      </tr>
+
+      <tr>
+       <td id = "C1">&nbsp;</td>
+       <td id = "C2">&nbsp;</td>
+       <td id = "C3">&nbsp;</td>
+       <td id = "C4">&nbsp;</td>
+       <td id = "C5">&nbsp;</td>
+       <td id = "C6">&nbsp;</td>
+       <td id = "C7">&nbsp;</td>
+       <td id = "C8">&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td id = "D1">&nbsp;</td>
+        <td id = "D2">&nbsp;</td>
+        <td id = "D3">&nbsp;</td>
+        <td id = "D4">&nbsp;</td>
+        <td id = "D5">&nbsp;</td>
+        <td id = "D6">&nbsp;</td>
+        <td id = "D7">&nbsp;</td>
+        <td id = "D8">&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td id = "E1">&nbsp;</td>
+        <td id = "E2">&nbsp;</td>
+        <td id = "E3">&nbsp;</td>
+        <td id = "E4">&nbsp;</td>
+        <td id = "E5">&nbsp;</td>
+        <td id = "E6">&nbsp;</td>
+        <td id = "E7">&nbsp;</td>
+        <td id = "E8">&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td id = "F1">&nbsp;</td>
+        <td id = "F2">&nbsp;</td>
+        <td id = "F3">&nbsp;</td>
+        <td id = "F4">&nbsp;</td>
+        <td id = "F5">&nbsp;</td>
+        <td id = "F6">&nbsp;</td>
+        <td id = "F7">&nbsp;</td>
+        <td id = "F8">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td id = "G1">&#9817;</td>
+       <td id = "G2">&#9817;</td>
+       <td id = "G3">&#9817;</td>
+       <td id = "G4">&#9817;</td>
+       <td id = "G5">&#9817;</td>
+       <td id = "G6">&#9817;</td>
+       <td id = "G7">&#9817;</td>
+       <td id = "G8">&#9817;</td>
+      </tr>
+
+      <tr>
+       <td id = "H1">&#9814;</td>
+       <td id = "H2">&#9816;</td>
+       <td id = "H3">&#9815;</td>
+       <td id = "H4">&#9813;</td>
+       <td id = "H5">&#9812;</td>
+       <td id = "H6">&#9815;</td>
+       <td id = "H7">&#9816;</td>
+       <td id = "H8">&#9814;</td>
+      </tr>
+
+    </table>
+
+
+    <h2> Chess Overview</h3>
+     <p> Chess is a classic strategy game that originated in  the 7th century. It is played on an 8x8 grid by two players who are attemping to use their pieces to capture the opposing player's King piece.
+      Each player has 16 pieces, 8 pawns, and 8 special pieces, with each type of piece having a specific manner in which it can move and capture enemy pieces.
+      Only one piece can be moved per turn, and players switch off taking turns, and the player with white pieces goes first.
+      Games can be timed or untimed, and the many chess tournaments usually play timed games.
+      <br>The end of a game is known as <i>Checkmate</i>, when one player's King is impossibly trapped by the opposing player's pieces. <i> Check </i> is a point in the game where one player is in capturing position of the opposing King, which forces the player to move their King to avoid <i> Checkmate </i>
+    </p>
+
+    <p>
+      Chess Dates back to the 6th century India, but the game has changed since its origins. The game as we know it today is based off changes made to the movement of Pieces
+      in 15th century Europe. The first chess competitions began in the 1800s, with the first World Champtionship being held in 1886. The two players were named Wilhelm Steinitz and Johannes Zukertort, and Steinitz claimed victory 10 games to 5.
+      The matches were played in different cities, beginning in New York City, then on to St. Louis, and finally finishing play in New Orleans.
+    </p>
+
+
+    <h2> Chess Pieces and Gameplay</h2>
+
+    <ul style="list-style-type:circle;">
+      <li><font size = "5">&#9817; Pawn: </font><br>
+        <ul style="list-style-type:disc;">
+          <li><b>Move</b> one space forward</li> <br>
+          <li><b>Capture</b> enemy pieces diagonally adjacent in front of it</li>
+        </ul>
+      </li>
+    <br>
+      <li><font size = "5">&#9814; Rook:</font> <br>
+        <ul style="list-style-type:disc;">
+        <li>  <b>Move</b> unlimited amount of spaces forward, backward, left or right</li> <br>
+          <li><b>Capture</b> enemy pieces it moves into</li>
+        </ul>
+      </li>
+    <br>
+
+      <li><font size = "5">&#9815; Knight:</font><br>
+        <ul style="list-style-type:disc;">
+          <li><b>Move</b> in an L shape, 3 spaces in one direction and then one space left or right</li> <br>
+          <li><b>Capture</b> enemy pieces it lands on at the end of its move</li>
+        </ul>
+    </li>
+    <br>
+
+      <li><font size = "5">&#9813; Bishop: </font><br>
+        <ul style="list-style-type:disc;">
+          <li><b>Move</b> unlimted amount of spaces diagonally </li> <br>
+          <li><b>Capture</b> enemy pieces it moves into </li>
+        </ul>
+      </li>
+    <br>
+
+      <li><font size = "5">&#9813; Queen: </font><br>
+        <ul style="list-style-type:disc;">
+          <li><b>Move</b> unlimted amount of spaces in any direction </li><br>
+        <li> <b>Capture</b> enemy pieces it moves into </li>
+        </ul>
+      </li>
+      <br>
+
+      <li><font size = "5">&#9812; King: </font><br>
+        <ul style="list-style-type:disc;">
+          <li><b>Move</b> one space in any direction </li><br>
+          <li><b>Capture</b> enemy pieces it moves into</li>
+        </ul>
+      </li>
+    </ul>
+
+
+
+    <h2> Steps to Create this Website</h2>
+    <ol type="1">
+      <li><font size = "5">HTML </font> <br>
+        <ol type="a">
+          <li>First I had to set up a .html text document with the barebones layout I wanted,
+          including a Title, Header, Table, and 3 Sub-Headers with paragraphs beneath them. </li>
+          <li>I knew that The first thing I needed to do was figure out how to create the table.
+          So I researched and found the syntax needed to create table and table elements, and created each table element with the correct chess piece in Unicode. </li>
+          <li>In order to make the squares alternating colors, I created cell ID's to style in the CSS document.</li>
+        </ol>
+      </li>  <br>
+
+      <li><font size = "5">CSS </font> <br>
+        <ol type="a">
+        <li>Next I created a .css document in order to style and format the table I was creating for the chess board.
+        The CSS document allowed me to edit the size of the pieces, spacing of cells, and the border on the table.</li>
+        <li>Here I also edited the backgound color of the page, and I experimented with using a backgroud image. The image made the text hareder to read so I opted for a solid color background.</li>
+      <li>  Lastly I styled the alternating cells by using the ID's created in the HTML document.</li>
+      </ol>
+      </li><br>
+
+      <li><font size = "5">Creating Content </font> <br>
+        And finally, I added all the necessary content to each section, detailing how to the game of chess works and how I made this website.
+      </li>
+    </ol>
+
+  </body>
+</html>
